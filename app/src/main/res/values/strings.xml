@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Tic-Tac-Toe2</string>
+    <string name="two_players">Two Players</string>
+    <string name="single_player">One Player</string>
+    <string name="se_min_lee">by Se Min Lee</string>
+    <string name="main_menu">Main menu</string>
+    <string name="among_us">among_us</string>
+</resources>
