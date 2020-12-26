@@ -29,20 +29,10 @@ There are few improvements that I would like to work on in the future.
 <br/>
 
 ![](app/src/main/res/drawable-v24/main_page.png)
-
-<br/>
-
 ![](app/src/main/res/drawable-v24/one_player.png)
-
-<br/>
-
 ![](app/src/main/res/drawable-v24/two_player.png)
-
-<br/>
-
 ![](app/src/main/res/drawable-v24/victory_page.png)
 
-<br/>
 ## Developer✅
 ### Se Min Lee
 - email: seminlee2794@gmail.com
