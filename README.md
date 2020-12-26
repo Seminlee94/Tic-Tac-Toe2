@@ -11,3 +11,8 @@ There are few improvements that I would like to work on in the future.
 Feel free to shoot me an email at seminlee2794@gmail.com if you have any questions or feedbacks!
 Thank you and enjoy!
 
+![](app/src/main/res/drawable-v24/main_page.png)
+![](app/src/main/res/drawable-v24/one_player.png)
+![](app/src/main/res/drawable-v24/two_player.png)
+![](app/src/main/res/drawable-v24/victory_page.png)
+
