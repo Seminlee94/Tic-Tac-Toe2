@@ -100,68 +100,27 @@ class SinglePlayerActivity1 : AppCompatActivity() {
 
 
     private fun checkWinner(player1size: Int, player2size: Int, player1name: String, player2name: String) {
-        var winner = -1
-
-        //row
-        if(player1.contains(1) && player1.contains(2) && player1.contains(3)) {
-            winner = 1
-        }
-        if(player2.contains(1) && player2.contains(2) && player2.contains(3)) {
-            winner = 2
-        }
-
-        if(player1.contains(4) && player1.contains(5) && player1.contains(6)) {
-            winner = 1
-        }
-        if(player2.contains(4) && player2.contains(5) && player2.contains(6)) {
-            winner = 2
-        }
-
-        if(player1.contains(7) && player1.contains(8) && player1.contains(9)) {
-            winner = 1
-        }
-        if(player2.contains(7) && player2.contains(8) && player2.contains(9)) {
-            winner = 2
+        val winner: Int = when {
+            player1.contains(1) && player1.contains(2) && player1.contains(3) -> 1
+            player1.contains(4) && player1.contains(5) && player1.contains(6) -> 1
+            player1.contains(7) && player1.contains(8) && player1.contains(9) -> 1
+            player1.contains(1) && player1.contains(4) && player1.contains(7) -> 1
+            player1.contains(2) && player1.contains(5) && player1.contains(8) -> 1
+            player1.contains(3) && player1.contains(6) && player1.contains(9) -> 1
+            player1.contains(1) && player1.contains(5) && player1.contains(9) -> 1
+            player1.contains(3) && player1.contains(5) && player1.contains(7) -> 1
+            player2.contains(1) && player2.contains(2) && player2.contains(3) -> 2
+            player2.contains(4) && player2.contains(5) && player2.contains(6) -> 2
+            player2.contains(7) && player2.contains(8) && player2.contains(9) -> 2
+            player2.contains(1) && player2.contains(4) && player2.contains(7) -> 2
+            player2.contains(2) && player2.contains(5) && player2.contains(8) -> 2
+            player2.contains(3) && player2.contains(6) && player2.contains(9) -> 2
+            player2.contains(1) && player2.contains(5) && player2.contains(9) -> 2
+            player2.contains(3) && player2.contains(5) && player2.contains(7) -> 2
+            else -> -1
         }
 
-        //column
-        if(player1.contains(1) && player1.contains(4) && player1.contains(7)) {
-            winner = 1
-        }
-        if(player2.contains(1) && player2.contains(4) && player2.contains(7)) {
-            winner = 2
-        }
-
-        if(player1.contains(2) && player1.contains(5) && player1.contains(8)) {
-            winner = 1
-        }
-        if(player2.contains(2) && player2.contains(5) && player2.contains(8)) {
-            winner = 2
-        }
-
-        if(player1.contains(3) && player1.contains(6) && player1.contains(9)) {
-            winner = 1
-        }
-        if(player2.contains(3) && player2.contains(6) && player2.contains(9)) {
-            winner = 2
-        }
-
-        //diagonal
-        if(player1.contains(1) && player1.contains(5) && player1.contains(9)) {
-            winner = 1
-        }
-        if(player2.contains(1) && player2.contains(5) && player2.contains(9)) {
-            winner = 2
-        }
-
-        if(player1.contains(3) && player1.contains(5) && player1.contains(7)) {
-            winner = 1
-        }
-        if(player2.contains(3) && player2.contains(5) && player2.contains(7)) {
-            winner = 2
-        }
-
-        if((player1size + player2size == 9) && (winner == -1)){
+        if((player1size + player2size == 9) && (winner != 1 || winner != 2)){
 
             val intent1 = Intent( this, WinPage2::class.java)
             intent1.putExtra("winner", "Game is tied!")
@@ -169,16 +128,16 @@ class SinglePlayerActivity1 : AppCompatActivity() {
             finish()
         }
 
-        if(winner != -1){
+        if(winner == 1 || winner == 2){
 
-            for ( i in 1..9)
+            for (i in 1..9)
             {
                 val id:Int = resources.getIdentifier("button$i","id", packageName)
                 val btn:Button = findViewById(id)
                 btn.isClickable = false
             }
 
-            if(winner ==1){
+            if(winner == 1){
 
                 val intent1 = Intent( this, WinPage2::class.java)
                 intent1.putExtra("winner", "$player1name won the game")
